@@ -61,3 +61,36 @@ class _DictionaryHomePageState extends State<DictionaryHomePage> {
       result = apiResult;
     });
   }
+@override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Dictionary App'),
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TextField(
+              maxLength: 10,
+              decoration: InputDecoration(
+                labelText: 'Enter a word',
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.search),
+              ),
+              onChanged: (value) {
+                setState(() {
+                  searchQuery =
+                      value.substring(0, value.length < 20 ? value.length : 20);
+                });
+              },
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                searchDictionary(searchQuery.toLowerCase());
+              },
+              child: Text('Search'),
+            ),
