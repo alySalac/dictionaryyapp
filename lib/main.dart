@@ -94,3 +94,24 @@ class _DictionaryHomePageState extends State<DictionaryHomePage> {
               },
               child: Text('Search'),
             ),
+            SizedBox(height: 20),
+            Expanded(
+              child: Card(
+                elevation: 4,
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: SingleChildScrollView(
+                    child: Text(
+                      result.isEmpty ? 'Enter a word to search.' : result,
+                      style: TextStyle(fontSize: 20, color: Colors.blue),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
