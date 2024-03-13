@@ -46,3 +46,18 @@ class DictionaryApp extends StatelessWidget {
     );
   }
 }
+class DictionaryHomePage extends StatefulWidget {
+  @override
+  _DictionaryHomePageState createState() => _DictionaryHomePageState();
+}
+
+class _DictionaryHomePageState extends State<DictionaryHomePage> {
+  String searchQuery = '';
+  String result = '';
+
+  void searchDictionary(String query) async {
+    final apiResult = await DictionaryApp().getData(query.toLowerCase());
+    setState(() {
+      result = apiResult;
+    });
+  }
