@@ -33,3 +33,16 @@ class DictionaryApp extends StatelessWidget {
       return "Error: Unable to fetch data from the API";
     }
   }
+@override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Dictionary App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: DictionaryHomePage(),
+    );
+  }
+}
